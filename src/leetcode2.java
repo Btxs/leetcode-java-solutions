@@ -1,5 +1,3 @@
-import java.util.List;
-
 public class leetcode2 {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode head = new ListNode(0);
