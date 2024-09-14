@@ -6,16 +6,24 @@ public class Leetcode134 {
      * @return
      */
     public int canCompleteCircuit(int[] gas, int[] cost) {
-        int totalSum = 0;
-        int maxSum = Integer.MIN_VALUE;
-        int startPosition = -1;
-        for (int i = 0; i <= gas.length - 1; ++i) {
-            totalSum += gas[i] - cost[i];
-            if (maxSum < totalSum) {
-                maxSum = totalSum;
-                startPosition = i;
+        int totalGas = 0;
+        int totalCost = 0;
+        for (int i = 0; i < gas.length; i++) {
+            totalGas += gas[i];
+            totalCost += cost[i];
+        }
+        if (totalGas < totalCost) return -1;
+
+        int start = 0, curSum = 0;
+        for (int i = 0; i < gas.length; i++) {
+            curSum += gas[i] - cost[i];
+            if (curSum < 0) {
+                // 当前起始点无法到达下一个点，更新起始点为下一个点，并将当前sum清零
+                start = i + 1;
+                curSum = 0;
             }
         }
-        return (totalSum >= 0) ? startPosition : -1;
+
+        return start;
     }
 }
