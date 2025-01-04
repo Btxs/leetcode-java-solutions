@@ -15,7 +15,7 @@ public class Leetcode128 {
         }
         int longestStreak = 0;
         // Iterate over each number in the set
-        for (Integer num :numSet) {
+        for (Integer num : numSet) {
             // Check start of a sequence
             if (!numSet.contains(num - 1)) {
                 int currentNum = num;
