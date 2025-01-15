@@ -1,6 +1,3 @@
-import java.util.ArrayList;
-import java.util.List;
-
 public class Leetcode2275 {
     public int largestCombination(int[] candidates) {
         int maxLength = 0;
